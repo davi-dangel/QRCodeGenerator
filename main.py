@@ -3,6 +3,7 @@ import png
 from pyqrcode import QRCode
 import validators
 import sys
+import os
 
 extension = '.png'
 
@@ -32,12 +33,17 @@ def validate_name(name):
         sys.exit()
 
 def generate_qrcode(link, name):
-    #gera QRCode
     qrcode = pyqrcode.create(link)
 
-    #salva o QRCode
     png_name = name + extension
-    qrcode.png(png_name, scale=8)
+    save_qrcode(png_name, qrcode)
+    
+
+def save_qrcode(png_name, qrcode):
+    try:
+        qrcode.png('C:\QRCode\\' + png_name, scale=8)
+    except:
+        qrcode.png(png_name, scale=8)
 
 
 main()
