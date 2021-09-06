@@ -1,9 +1,7 @@
 import pyqrcode
-import png
 from pyqrcode import QRCode
 import validators
 import sys
-import os
 
 extension = '.png'
 
@@ -42,6 +40,8 @@ def generate_qrcode(link, name):
 def save_qrcode(png_name, qrcode):
     try:
         qrcode.png('C:\QRCode\\' + png_name, scale=8)
+        print("Seu QRCode esta ná na pasta QRCode, dentro da raíz.")
+        print("O link é C:\QRCode")
     except:
         qrcode.png(png_name, scale=8)
 
